@@ -1,4 +1,4 @@
-all: init test lint
+all: init test black lint
 init:
 	pip install -r requirements.txt
 
@@ -13,5 +13,9 @@ docker:
 
 release:
 	docker push pyro2927/southwestcheckin
+
+BLACK_ARGS = 
+black:
+	black ${BLACK_ARGS} southwest/ tests/
 
 .PHONY: all
